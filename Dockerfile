@@ -22,7 +22,7 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
     rm -r /var/lib/apt/lists/*
 
 # NativeScript
-RUN npm install -g nativescript@latest && \
+RUN npm install -g --unsafe-perm nativescript@latest && \
     tns error-reporting disable
 
 # Android build requirements
