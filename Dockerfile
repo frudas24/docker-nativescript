@@ -7,7 +7,7 @@ COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 # Utilities
 RUN apt-get update && \
-    apt-get -y install apt-transport-https unzip curl usbutils --no-install-recommends && \
+    apt-get -y install apt-utils apt-transport-https unzip gnupg2 curl usbutils --no-install-recommends && \
     rm -r /var/lib/apt/lists/*
 
 # JAVA
@@ -16,13 +16,13 @@ RUN apt-get update && \
     rm -r /var/lib/apt/lists/*
 
 # NodeJS
-RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
     apt-get update && \
     apt-get -y install nodejs --no-install-recommends && \
     rm -r /var/lib/apt/lists/*
 
 # NativeScript
-RUN npm install -g nativescript && \
+RUN npm install -g nativescript@latest && \
     tns error-reporting disable
 
 # Android build requirements
