@@ -5,7 +5,8 @@ RUN useradd -ms /bin/bash nativescript
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
-DEBIAN_FRONTEND=noninteractive
+#Disable interactive in term
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 # Utilities
 RUN apt-get update && \
     apt-get -y install apt-utils apt-transport-https unzip gnupg2 curl usbutils --no-install-recommends && \
