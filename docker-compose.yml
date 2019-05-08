@@ -2,3 +2,4 @@ version: '2'
 services:
   app:
     build: .
+    image: android/android-nativescript:v1
