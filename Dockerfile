@@ -16,13 +16,13 @@ RUN apt-get update && \
     rm -r /var/lib/apt/lists/*
 
 # NodeJS
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get update && \
     apt-get -y install nodejs --no-install-recommends && \
     rm -r /var/lib/apt/lists/*
 
 # NativeScript
-RUN npm install -g --unsafe-perm nativescript@latest && \
+RUN npm install -g --unsafe-perm nativescript@10.15.3 && \
     tns error-reporting disable
 
 # Android build requirements
